@@ -19,7 +19,9 @@ export const imageUploader = {
       "waitUntil" : "networkidle0"
     })
     const imagePath = `${outputDir}/${id}.png`
-    await page.waitForTimeout(delay)
+    if (delay > 0) {
+      await page.waitForTimeout(delay)
+    }
     await page.screenshot({path: imagePath, fullPage: true})
 
     await browser.close()
