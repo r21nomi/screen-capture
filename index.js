@@ -11,7 +11,7 @@ program
   .option("-from, --from <id>", "id from", "0")
   .option("-to, --to <id>", "id to", "2999")
   .option("-ids, --ids [ids...]", "ids")
-  .option("-size, --size <size>", "image size", "s1600")
+  .option("-size, --size <size>", "image size", "s800")
   .option("-delay, --delay <delay>", "delay", "0")
   .parse(process.argv)
 
@@ -26,22 +26,22 @@ const ENDPOINT = `${process.env.TARGET_URL}`
 const SIZE = {
   // 800 x 800
   s800: {
-    w: 800 / 2,
-    h: 800 / 2
+    w: 800,
+    h: 800
   },
   // 1600 x 1600
   s1600: {
-    w: 1600 / 2,
-    h: 1600 / 2
+    w: 1600,
+    h: 1600
   },
   // 900 x 1600
   s16_9: {
-    w: 900 / 2,
-    h: 1600 / 2
+    w: 900,
+    h: 1600
   },
   s4k: {
-    w: 2160 / 2,
-    h: 3840 / 2
+    w: 2160,
+    h: 3840
   },
 }
 const BASE_OUTPUT_DIR = "output"
@@ -72,7 +72,7 @@ const getWindowSize = () => {
 }
 
 const createOutputDirIfNeeded = () => {
-  outputDir = `${BASE_OUTPUT_DIR}/${windowSize.w * 2}_${windowSize.h * 2}`
+  outputDir = `${BASE_OUTPUT_DIR}/${windowSize.w}_${windowSize.h}`
   // Create directory first if it doesn't exist.
   if (!fs.existsSync(BASE_OUTPUT_DIR)){
     fs.mkdirSync(BASE_OUTPUT_DIR)
