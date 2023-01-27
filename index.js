@@ -22,7 +22,7 @@ const thumbnailSize = options.size
 const delay = parseInt(options.delay)
 console.log(options)
 
-const ENDPOINT = "http://localhost:8080"
+const ENDPOINT = `${process.env.TARGET_URL}`
 const SIZE = {
   // 800 x 800
   s800: {
